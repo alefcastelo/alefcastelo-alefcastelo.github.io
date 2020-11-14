@@ -1,4 +1,4 @@
-import { deepPurple, grey } from '@material-ui/core/colors'
+import { grey } from '@material-ui/core/colors'
 
 export const config = {
   color: {
