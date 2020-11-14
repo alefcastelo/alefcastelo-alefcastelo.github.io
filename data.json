@@ -1,0 +1,82 @@
+{
+    "experiencies":  [
+        {
+            "company": "Linio Group",
+            "image": "/experiencies/linio.jpeg",
+            "history": [
+                {
+                    "title": "Senior Software Engineer - Payments",
+                    "from": "November 01, 2018",
+                    "to": null,
+                    "type": "Full-time",
+                    "region": "Mexico City Area, Mexico",
+                    "description": "Now I'm working on LinioPay, creating, and maintain features. As part of the work, I still working on other Linio projects doing the integrations with LinioPay. <br /><br /> But now the difference is LinioPay has PCI projects. And for these projects and as a software engineer, we are required to create unit and integration tests to cover 100% of the code. <br /><br /> Framework and Libs: Laminas Mezzio + Doctrine <br />Tests: PHPUnit + Behat + Mutation tests with Infection <br />Relational: PostgresSQL <br />Tools to static analysis: PHP-CS-FIXER, PHPStan"
+                },
+                {
+                    "title": "Senior Software Engineer",
+                    "from": "November 01, 2018",
+                    "to": null,
+                    "type": "Full-time",
+                    "region": "Mexico City Area, Mexico",
+                    "description": "At Linio, I have been work on different projects, most of the time I worked on PIM (Product Information Management), until the end of 2019, a project responsible to deliver the same product catalog to different countries that Linio works. <br /><br />In this project, there are many business rules. The core feature is to differentiate the product from offers, in our vision we can have many offers to the same product as a result we have better search results and a more concise database."
+                }
+            ]
+        },
+        {
+            "company": "Oowlish",
+            "image": "/experiencies/oowlish.jpeg",
+            "history": [
+                {
+                    "title": "Software Engineer",
+                    "from": "February 01, 2017",
+                    "to": "October 01, 2018",
+                    "type": "Full-time",
+                    "region": "Fortaleza Area, Brazil",
+                    "description": "Oowlish now is responsible for PetCoach and I'm still working on PetCoach, doing code review, evaluating tests, training and onboarding the new developers, developing new features and improving the architecture.<br /><br />Framework and Libs: Symfony + SonataAdmin + DoctrineORM + JMSSerializer<br />Tests: PHPUnit + Codeception<br />NoSQL: ElasticSearch<br />Relational: MySQL"
+                }
+            ]
+        },
+        {
+            "company": "PetCoach",
+            "image": "/experiencies/petcoach.jpeg",
+            "history": [
+                {
+                    "title": "Software Engineer",
+                    "from": "February 01, 2017",
+                    "to": "October 01, 2018",
+                    "type": "Full-time",
+                    "region": "Fortaleza Area, Brazil",
+                    "description": "Creation and maintenance of features for PetCoach, bug prevention with code review, always seeking to improve the quality, performance and architecture of the project.<br /><br />Framework and Libs: Symfony + SonataAdmin + DoctrineORM + JMSSerializer<br />Tests: PHPUnit + Codeception<br />NoSQL: ElasticSearch<br />Relational: MySQL<br />Tools to static analysis: PHPMD, PHPCS, PHPCPD"
+                }
+            ]
+        },
+        {
+            "company": "Funceme",
+            "image": "/experiencies/funceme.png",
+            "history": [
+                {
+                    "title": "Software Engineer",
+                    "from": "May 01, 2015",
+                    "to": "January 01, 2017",
+                    "type": "Full-time",
+                    "region": "Fortaleza Area, Brazil",
+                    "description": "Maintain and develop systems and websites using Zend Framework 2, Laravel, Doctrine, Javascript, HTML and CSS.<br /><br />I participated in projects of diverse complexities, where it was necessary to have a minimum of knowledge about meteorology and hydrology, since it was fundamental to know how to provide the information collected by meteorological stations, radars and etc."
+                }
+            ]
+        },
+        {
+            "company": "Avanz",
+            "image": "/experiencies/avanz.png",
+            "history": [
+                {
+                    "title": "Software Engineer",
+                    "from": "Augoust 01, 2012",
+                    "to": "April 01, 2015",
+                    "type": "Full-time",
+                    "region": "Fortaleza Area, Brazil",
+                    "description": "Construction and maintenance of websites, portals, intranets, social networking using Drupal, PHP, JavaScript, HTML and CSS.<br />Storage: MySQL, Postgres."
+                }
+            ]
+        }
+    ]
+}
