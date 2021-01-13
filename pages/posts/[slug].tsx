@@ -1,28 +1,30 @@
-import Layout from '../../components/layout'
-import { getAllPosts, getPostBySlug } from '../../lib/api'
+import React from 'react'
+import {
+  GetStaticPaths,
+  GetStaticProps,
+  GetStaticPropsContext,
+  NextPage
+} from 'next'
+import { getAllPosts, getPostBySlug, Post } from '../../lib/api'
 import markdownToHtml from '../../lib/markdown-to-html'
 
-export default function Doc ({ post }) {
+interface Props {
+  post: Post
+}
+
+const PostPage: NextPage<Props> = ({ post }) => {
   return (
-      <>
-        <Layout>
-            <h1>{post.title}</h1>
-            <div dangerouslySetInnerHTML={{ __html: post.content }} />
-        </Layout>
-      </>
+    <>
+      <h1>{post.title}</h1>
+      <div dangerouslySetInnerHTML={{ __html: post.content }} />
+    </>
   )
 }
 
-export async function getStaticProps ({ params }) {
-  const post: any = getPostBySlug(params.slug, [
-    'title',
-    'date',
-    'slug',
-    'author',
-    'content',
-    'ogImage',
-    'coverImage'
-  ])
+export const getStaticProps: GetStaticProps = async ({
+  params
+}: GetStaticPropsContext<{ slug: string }>): Promise<{ props: Props }> => {
+  const post: Post = getPostBySlug(params.slug, ['title', 'slug', 'content'])
   const content = await markdownToHtml(post.content || '')
 
   return {
@@ -35,17 +37,15 @@ export async function getStaticProps ({ params }) {
   }
 }
 
-export async function getStaticPaths () {
+export const getStaticPaths: GetStaticPaths = async () => {
   const posts = getAllPosts(['slug'])
 
   return {
-    paths: posts.map((post: any) => {
-      return {
-        params: {
-          slug: post.slug
-        }
-      }
+    paths: posts.map(({ slug }: Post) => {
+      return { params: { slug } }
     }),
     fallback: false
   }
 }
+
+export default PostPage

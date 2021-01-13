@@ -4,9 +4,12 @@ module.exports = {
     es2021: true
   },
   extends: [
+    "plugin:react/recommended",
+    'standard',
     'plugin:@typescript-eslint/recommended',
-    'plugin:react/recommended',
-    'standard'
+    'prettier/@typescript-eslint',
+    'prettier/standard',
+    'prettier/react',
   ],
   parser: '@typescript-eslint/parser',
   parserOptions: {
@@ -16,11 +19,11 @@ module.exports = {
     ecmaVersion: 12,
     sourceType: 'module'
   },
-  plugins: [
-    'react',
-    '@typescript-eslint'
-  ],
+  plugins: ['react', '@typescript-eslint', 'prettier'],
   rules: {
+    'prettier/prettier': 'error',
+    'space-before-function-paren': 'off',
+    'react/prop-types': 'off',
     'no-use-before-define': 'off'
   }
 }

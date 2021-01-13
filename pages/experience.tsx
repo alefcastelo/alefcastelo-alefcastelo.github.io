@@ -4,9 +4,7 @@ import Layout from '../components/layout'
 const Experience: React.FC = () => {
   return (
     <>
-      <Layout>
-        experienceies
-      </Layout>
+      <Layout>experienceies</Layout>
     </>
   )
 }

@@ -1,14 +1,31 @@
 import React from 'react'
-import Layout from '../components/layout'
+import { GetStaticProps, NextPage } from 'next'
+import { getAllPosts, Post } from '../lib/api'
 
-const Home: React.FC = () => {
+interface Props {
+  posts: Post[]
+}
+
+const Home: NextPage<Props> = ({ posts }) => {
   return (
     <>
-      <Layout>
-        index
-      </Layout>
+      {posts.map(({ slug, title }: Post, key: number) => (
+        <div key={key}>
+          {slug} - {title}
+        </div>
+      ))}
     </>
   )
+}
+
+export const getStaticProps: GetStaticProps = async () => {
+  const posts = getAllPosts(['title', 'slug'])
+
+  return {
+    props: {
+      posts
+    }
+  }
 }
 
 export default Home
