@@ -5,19 +5,28 @@ import matter from 'gray-matter'
 export interface Post {
   title: string
   slug: string
+  seo?: {
+    title?: string
+    description?: string
+  }
+  lang: string
   date: Date
   content: string
 }
 
 const __POSTS_DIR__ = join(process.cwd(), '_posts')
 
-export const getPostSlugs = (): string[] => {
-  return fs.readdirSync(__POSTS_DIR__)
+export const getPostSlugs = (lang: string): string[] => {
+  return fs.readdirSync(join(__POSTS_DIR__, lang))
 }
 
-export const getPostBySlug = (slug: string, fields = []): Post => {
+export const getPostBySlug = (
+  slug: string,
+  lang: string,
+  fields = []
+): Post => {
   const realSlug = slug.replace(/\.md$/, '')
-  const fullPath = join(__POSTS_DIR__, `${realSlug}.md`)
+  const fullPath = join(__POSTS_DIR__, `/${lang}/${realSlug}.md`)
   const fileContents = fs.readFileSync(fullPath, 'utf8')
 
   const { data, content } = matter(fileContents)
@@ -40,6 +49,6 @@ export const getPostBySlug = (slug: string, fields = []): Post => {
   return post as Post
 }
 
-export const getAllPosts = (fields = []): Post[] => {
-  return getPostSlugs().map(slug => getPostBySlug(slug, fields))
+export const getAllPosts = (lang: string, fields = []): Post[] => {
+  return getPostSlugs(lang).map(slug => getPostBySlug(slug, lang, fields))
 }

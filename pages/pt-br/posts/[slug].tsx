@@ -5,26 +5,38 @@ import {
   GetStaticPropsContext,
   NextPage
 } from 'next'
-import { getAllPosts, getPostBySlug, Post } from '../../lib/api'
-import markdownToHtml from '../../lib/markdown-to-html'
+import { getAllPosts, getPostBySlug, Post } from '../../../lib/posts-api'
+import markdownToHtml from '../../../lib/markdown-to-html'
+import Head from 'next/head'
+import Layout from '../../../components/layout'
+import * as PagePostStyle from '../../../styles/pages/pt-br/posts/[slug].style'
 
 interface Props {
   post: Post
 }
 
-const PostPage: NextPage<Props> = ({ post }) => {
-  return (
-    <>
+const PostPage: NextPage<Props> = ({ post }) => (
+  <Layout>
+    <Head>
+      <title>{post.seo.title} | Alef Castelo</title>
+    </Head>
+    <PagePostStyle.PostContainer>
       <h1>{post.title}</h1>
       <div dangerouslySetInnerHTML={{ __html: post.content }} />
-    </>
-  )
-}
+    </PagePostStyle.PostContainer>
+  </Layout>
+)
 
 export const getStaticProps: GetStaticProps = async ({
   params
 }: GetStaticPropsContext<{ slug: string }>): Promise<{ props: Props }> => {
-  const post: Post = getPostBySlug(params.slug, ['title', 'slug', 'content'])
+  const post: Post = getPostBySlug(params.slug, 'pt-br', [
+    'title',
+    'slug',
+    'content',
+    'seo',
+    'lang'
+  ])
   const content = await markdownToHtml(post.content || '')
 
   return {
@@ -38,7 +50,7 @@ export const getStaticProps: GetStaticProps = async ({
 }
 
 export const getStaticPaths: GetStaticPaths = async () => {
-  const posts = getAllPosts(['slug'])
+  const posts = getAllPosts('pt-br', ['slug'])
 
   return {
     paths: posts.map(({ slug }: Post) => {
