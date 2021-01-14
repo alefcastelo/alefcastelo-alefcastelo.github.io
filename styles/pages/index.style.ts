@@ -9,6 +9,7 @@ export const PostItem = styled.div``
 export const PostItemTitle = styled.a`
   font-size: ${props => props.theme.size.xl}rem;
   font-weight: bold;
+  color: ${props => props.theme.palette.dark};
 `
 
 export const PostItemDate = styled.div`
