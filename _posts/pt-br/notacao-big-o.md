@@ -1,14 +1,14 @@
 ---
 title: 'Notação Big O'
-date: '2020-03-16T05:35:07.322Z'
+date: '2021-01-22T00:00:01.000Z'
 lang: pt-br
 seo:
   title: 'Notação Big O'
-  description: 'Lorem ipsum dolor sit amet consectetur adipiscing elit praesent lobortis, integer interdum.'
+  description: 'Notação Big O é usada para descrever a performance de um algoritmo.'
 ---
 
-Lorem ipsum dolor sit amet consectetur adipiscing elit praesent lobortis, integer interdum tempor in class facilisi molestie pellentesque parturient donec, lacinia ultrices felis ultricies lectus litora nullam himenaeos. Nunc nascetur leo scelerisque lectus felis mi nisl accumsan porta luctus, placerat lobortis arcu dapibus interdum aptent ultricies eleifend aenean, est mattis parturient torquent fames primis nulla venenatis orci. Primis accumsan sed blandit mi platea maecenas dictum lobortis proin, torquent aliquam non curae rutrum ut gravida fusce parturient, tempor auctor vivamus quisque consequat nostra in laoreet.
+Notação Big O é uma notação matemática que descreve o comportamento limitante de uma função quando o argumento tende para um determinado valor ou infinito. Simplificando, isso significa que é uma notação para descrever a performance de um algoritmo, basicamente ajuda a determinar se um algoritmo escala ou não. Um algoritmo que executa rápido não significa que ele vai escalar da mesma maneira se tivermos um grande input de dados. E por esse motivo usamos a notação de Big O para determinar a performance de um algoritmo.
 
-## Hello 2
+## O que isso tem a ver com estrutura de dados?
 
-Pulvinar felis vestibulum orci urna class euismod platea habitant, ullamcorper nibh sed per fermentum natoque nisl. Integer facilisi magna convallis potenti neque sociis sapien maecenas turpis, mi inceptos vulputate tincidunt dis lacinia cras praesent. Urna tincidunt enim nullam justo cum cursus magna orci pellentesque tristique netus, senectus id primis ligula egestas gravida velit neque dapibus quis inceptos, mauris aptent facilisi molestie curae aenean et purus curabitur hac.
+Basicamente, certas operações podem ter um custo maior ou menor dependendo da estrutura de dados usada. Nas próximas seções veremos sobre como usamos a notação e como uma mesma algoritmo usando estrutura de dados diferente tem performance performance diferente.
