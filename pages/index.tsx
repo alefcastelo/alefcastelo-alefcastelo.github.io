@@ -15,7 +15,11 @@ const Home: NextPage<Props> = ({ posts }) => {
         {posts.map(
           ({ slug, title, lang, seo, date: dateString }: Post, key: number) => {
             const date = new Date(dateString)
-            const options = { year: 'numeric', month: 'long', day: 'numeric' }
+            const options: Intl.DateTimeFormatOptions = {
+              year: 'numeric',
+              month: 'long',
+              day: 'numeric'
+            }
 
             return (
               <PageIndexStyle.PostItem key={key}>
