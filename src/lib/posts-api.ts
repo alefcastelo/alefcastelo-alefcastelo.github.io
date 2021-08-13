@@ -14,7 +14,7 @@ export interface Post {
   content: string
 }
 
-const __POSTS_DIR__ = join(process.cwd(), '_posts')
+const __POSTS_DIR__ = join(process.cwd(), 'src', 'posts')
 
 export const getPostSlugs = (lang: string): string[] => {
   return fs.readdirSync(join(__POSTS_DIR__, lang))

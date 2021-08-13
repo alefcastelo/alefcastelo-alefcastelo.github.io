@@ -1,8 +1,7 @@
 import React from 'react'
 import { GetStaticProps, NextPage } from 'next'
-import { getAllPosts, Post } from '../lib/posts-api'
-import Layout from '../components/layout'
-import * as PageIndexStyle from '../styles/pages/index.style'
+import { getAllPosts, Post } from '@/lib/posts-api'
+import { Layout } from '@/components/layout'
 
 interface Props {
   posts: Post[]
@@ -11,7 +10,7 @@ interface Props {
 const Home: NextPage<Props> = ({ posts }) => {
   return (
     <Layout>
-      <PageIndexStyle.Content>
+      <div>
         {posts.map(
           ({ slug, title, lang, seo, date: dateString }: Post, key: number) => {
             const date = new Date(dateString)
@@ -22,21 +21,17 @@ const Home: NextPage<Props> = ({ posts }) => {
             }
 
             return (
-              <PageIndexStyle.PostItem key={key}>
-                <PageIndexStyle.PostItemTitle href={`/${lang}/posts/${slug}`}>
-                  {title}
-                </PageIndexStyle.PostItemTitle>
-                <PageIndexStyle.PostItemDate>
-                  Created at {date.toLocaleDateString(lang, options)}
-                </PageIndexStyle.PostItemDate>
-                <PageIndexStyle.PostItemDescription>
-                  {seo.description}
-                </PageIndexStyle.PostItemDescription>
-              </PageIndexStyle.PostItem>
+              <div key={key}>
+                <h3>
+                  <a href={`/${lang}/posts/${slug}`}>{title}</a>
+                </h3>
+                <span>Created at {date.toLocaleDateString(lang, options)}</span>
+                <div>{seo.description}</div>
+              </div>
             )
           }
         )}
-      </PageIndexStyle.Content>
+      </div>
     </Layout>
   )
 }

@@ -5,26 +5,26 @@ import {
   GetStaticPropsContext,
   NextPage
 } from 'next'
-import { getAllPosts, getPostBySlug, Post } from '../../../lib/posts-api'
-import markdownToHtml from '../../../lib/markdown-to-html'
+import { getAllPosts, getPostBySlug, Post } from '@/lib/posts-api'
+import markdownToHtml from '@/lib/markdown-to-html'
 import Head from 'next/head'
-import Layout from '../../../components/layout'
-import * as PagePostStyle from '../../../styles/pages/pt-br/posts/[slug].style'
+import { Layout } from '@/components/layout'
+import { PostTitle } from '@/components/post'
 
 interface Props {
   post: Post
 }
 
 const PostPage: NextPage<Props> = ({ post }) => (
-  <Layout>
+  <>
     <Head>
       <title>{post.seo.title} | Alef Castelo</title>
     </Head>
-    <PagePostStyle.PostContainer>
-      <h1>{post.title}</h1>
+    <Layout>
+      <PostTitle>{post.title}</PostTitle>
       <div dangerouslySetInnerHTML={{ __html: post.content }} />
-    </PagePostStyle.PostContainer>
-  </Layout>
+    </Layout>
+  </>
 )
 
 export const getStaticProps: GetStaticProps = async ({
@@ -37,6 +37,7 @@ export const getStaticProps: GetStaticProps = async ({
     'seo',
     'lang'
   ])
+
   const content = await markdownToHtml(post.content || '')
 
   return {
