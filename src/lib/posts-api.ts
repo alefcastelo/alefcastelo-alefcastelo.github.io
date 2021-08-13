@@ -32,6 +32,7 @@ export const getPostBySlug = (
   const { data, content } = matter(fileContents)
 
   const post = {}
+
   fields.forEach(field => {
     if (field === 'slug') {
       post[field] = realSlug
@@ -50,5 +51,17 @@ export const getPostBySlug = (
 }
 
 export const getAllPosts = (lang: string, fields = []): Post[] => {
-  return getPostSlugs(lang).map(slug => getPostBySlug(slug, lang, fields))
+  return getPostSlugs(lang)
+    .map(slug => getPostBySlug(slug, lang, fields))
+    .sort((post1, post2) => {
+      if (post1.date > post2.date) {
+        return -1
+      }
+
+      if (post1.date < post2.date) {
+        return 1
+      }
+
+      return 0
+    })
 }

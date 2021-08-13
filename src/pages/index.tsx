@@ -2,7 +2,12 @@ import React from 'react'
 import { GetStaticProps, NextPage } from 'next'
 import { getAllPosts, Post } from '@/lib/posts-api'
 import { Layout } from '@/components/layout'
-import { PostListDate, PostListTitle } from '@/components/post'
+import {
+  PostItem,
+  PostItemDate,
+  PostItemDescription,
+  PostItemTitle
+} from '@/components/post'
 
 interface Props {
   posts: Post[]
@@ -23,15 +28,15 @@ const Home: NextPage<Props> = ({ posts }) => {
             }
 
             return (
-              <div key={key}>
-                <PostListTitle>
-                  <a href={`/${lang}/posts/${slug}`}>{title}</a>
-                </PostListTitle>
-                <PostListDate>
-                  Criado em {date.toLocaleDateString(lang, options)}
-                </PostListDate>
-                <div>{seo.description}</div>
-              </div>
+              <PostItem key={key}>
+                <a href={`/${lang}/posts/${slug}`}>
+                  <PostItemTitle>{title}</PostItemTitle>
+                  <PostItemDate>
+                    Criado em {date.toLocaleDateString(lang, options)}
+                  </PostItemDate>
+                  <PostItemDescription>{seo.description}</PostItemDescription>
+                </a>
+              </PostItem>
             )
           }
         )}
